@@ -1,0 +1,194 @@
+.about{
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 0 10%;
+    z-index: 1;
+}
+
+.about-content h1{
+    padding-bottom: 30px;
+    margin: 0 0 50px 150px;
+}
+
+.about-content p{
+    width: 750px;
+    height: fit-content;
+    color: black;
+    font-family: cursive;
+}
+
+.about-content {
+    position: relative;
+  }
+  
+  .about-content h1 {
+    color: #fff;
+    font-size: 4em;
+    position: absolute;
+    transform: translate(-50%, -50%);
+  }
+  
+  .about-content h1:nth-child(1) {
+    color: transparent;
+    -webkit-text-stroke: 2px black;;
+  }
+  
+  .about-content h1:nth-child(2) {
+    color: black;;
+    animation: animate 4s ease-in-out infinite;
+  }
+  
+  @keyframes animate {
+    0%,
+    100% {
+      clip-path: polygon(
+        0% 45%,
+        16% 44%,
+        33% 50%,
+        54% 60%,
+        70% 61%,
+        84% 59%,
+        100% 52%,
+        100% 100%,
+        0% 100%
+      );
+    }
+  
+    50% {
+      clip-path: polygon(
+        0% 60%,
+        15% 65%,
+        34% 66%,
+        51% 62%,
+        67% 50%,
+        84% 45%,
+        100% 46%,
+        100% 100%,
+        0% 100%
+      );
+    }
+  }
+
+  .text{
+    margin: 40px 0 0 0;
+  }
+
+.My-Skills{
+    padding-top: 371px;
+    margin-top: -371px;
+  }
+
+.My-Skills2{
+    width: 700px;
+    margin-left: 250px;
+}
+
+.waviy {
+    position: relative;
+  }
+  .waviy span {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 40px;
+    font-size: 40px;
+    color: black;;
+    text-transform: uppercase;
+    animation: flip 2s infinite;
+    animation-delay: calc(.2s * var(--i))
+  }
+  @keyframes flip {
+    0%,80% {
+      transform: rotateY(360deg) 
+    }
+  }
+
+.My-Skills2 div button{
+    position: relative;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    height: 45px;
+    border: 2px solid black;
+    border-radius: 8px;
+    font-size: 19px;
+    text-decoration: none;
+    font-weight: 600;
+    letter-spacing: 1px;
+    background: transparent;
+    color: black;
+    z-index: 1;
+    overflow: hidden;
+    padding: 0 10px 0 10px;
+    margin: 5px 5px 5px 5px;
+}
+
+.My-Skills2 div button:hover{
+    color: #4e4e4e;
+}
+
+.My-Skills2 div button::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: black;
+    z-index: -1;
+    transition: .5s;
+}
+
+.My-Skills2 div button:hover::before{
+    width: 100%;
+}
+
+
+.Experience-container{
+  padding-top: 270px;
+  margin-top: -270px;
+  margin-bottom: 330px;
+  padding-left: 175px;
+  z-index: 1;
+  position: relative;
+}
+
+.experience-content p{
+    color: black;
+    font-family: cursive;
+}
+
+.experience-content h1{
+font-size: 60px;
+color: black;;
+}
+.experience-content h2{
+  color: black;;
+}
+
+.experience-content h4{
+  color: black;
+}
+
+/* Grow effect for Experience roles on hover - slower and moves other content */
+.experience-content .data-assistant,
+.experience-content .web-developer,
+.experience-content h1{
+  transition:
+    transform 1s cubic-bezier(.4,1.6,.6,1),
+    font-size 1s cubic-bezier(.4,1.6,.6,1);
+  display: block; /* Ensures it takes up space and pushes other content */
+}
+
+.experience-content .data-assistant:hover,
+.experience-content .web-developer:hover
+ {
+  font-size: 1.24em;
+  z-index: 2;
+  /*box-shadow: 0 4px 24px 0 rgba(0,0,0,0.07);*/
+}
+
+.experience-content h1:hover{
+  font-size: 100px;
+  z-index: 2;
+}

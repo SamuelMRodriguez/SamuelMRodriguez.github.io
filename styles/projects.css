@@ -1,0 +1,317 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/*:root {
+  --color-primary: #000000;
+  --color-secondary: #000000;
+  --color-tertiary: #000000;
+  --color-quaternary: #000000;
+  --color-quinary: #000000;
+}*/
+
+.Project-container {
+  padding-top: 210px;
+  margin-top: -210px;
+}
+
+
+.Project{
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  margin: 0 0 120px 0px;
+}
+
+/*
+.Project h1{
+  text-shadow: 3px 3px 0 var(--color-secondary), 6px 6px 0 var(--color-tertiary),
+    9px 9px var(--color-quaternary), 12px 12px 0 var(--color-quinary);
+  font-family: bungee, sans-serif;
+  font-weight: 400;
+  text-transform: uppercase;
+  font-size: calc(2rem + 5vw);
+  text-align: center;
+  margin: 0;
+  color: var(--color-primary);
+  background-clip: text;
+  animation: shadows 1.2s ease-in infinite, move 1.2s ease-in infinite;
+  letter-spacing: 0.4rem;
+}
+
+@keyframes shadows {
+  0% {
+    text-shadow: none;
+  }
+  10% {
+    text-shadow: 3px 3px 0 var(--color-secondary);
+  }
+  20% {
+    text-shadow: 3px 3px 0 var(--color-secondary),
+      6px 6px 0 var(--color-tertiary);
+  }
+  30% {
+    text-shadow: 3px 3px 0 var(--color-secondary),
+      6px 6px 0 var(--color-tertiary), 9px 9px var(--color-quaternary);
+  }
+  40% {
+    text-shadow: 3px 3px 0 var(--color-secondary),
+      6px 6px 0 var(--color-tertiary), 9px 9px var(--color-quaternary),
+      12px 12px 0 var(--color-quinary);
+  }
+  50% {
+    text-shadow: 3px 3px 0 var(--color-secondary),
+      6px 6px 0 var(--color-tertiary), 9px 9px var(--color-quaternary),
+      12px 12px 0 var(--color-quinary);
+  }
+  60% {
+    text-shadow: 3px 3px 0 var(--color-secondary),
+      6px 6px 0 var(--color-tertiary), 9px 9px var(--color-quaternary),
+      12px 12px 0 var(--color-quinary);
+  }
+  70% {
+    text-shadow: 3px 3px 0 var(--color-secondary),
+      6px 6px 0 var(--color-tertiary), 9px 9px var(--color-quaternary);
+  }
+  80% {
+    text-shadow: 3px 3px 0 var(--color-secondary),
+      6px 6px 0 var(--color-tertiary);
+  }
+  90% {
+    text-shadow: 3px 3px 0 var(--color-secondary);
+  }
+  100% {
+    text-shadow: none;
+  }
+}
+
+@keyframes move {
+  0% {
+    transform: translate(0px, 0px);
+  }
+  40% {
+    transform: translate(-12px, -12px);
+  }
+  50% {
+    transform: translate(-12px, -12px);
+  }
+  60% {
+    transform: translate(-12px, -12px);
+  }
+  100% {
+    transform: translate(0px, 0px);
+  }
+}*/
+
+.Project h1 {
+  font-family: bungee, sans-serif;
+  font-weight: 400;
+  text-transform: uppercase;
+  font-size: calc(2rem + 5vw);
+  text-align: center;
+  margin: 0;
+  color: black;
+  letter-spacing: 0.4rem;
+  position: relative;
+  z-index: 1;
+  animation: glitch-main 7s infinite linear alternate-reverse;
+  text-shadow: 0 0 2px #222, 0 0 8px #222;
+}
+
+.Project h1::before,
+.Project h1::after {
+  content: 'Projects';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  text-transform: inherit;
+  letter-spacing: inherit;
+  pointer-events: none;
+  opacity: 0.7;
+}
+
+.Project h1::before {
+  color: black;
+  z-index: 2;
+  animation: glitch-before 7s infinite linear alternate-reverse;
+  clip-path: polygon(0 2%, 100% 0, 100% 40%, 0 42%);
+}
+
+.Project h1::after {
+  color: black;
+  z-index: 2;
+  animation: glitch-after 7s infinite linear alternate-reverse;
+  clip-path: polygon(0 60%, 100% 58%, 100% 100%, 0 100%);
+}
+
+@keyframes glitch-main {
+  0%, 100% { transform: none; }
+  10% { transform: translate(-2px, 2px) skew(-1deg); }
+  20% { transform: translate(-4px, 1px) skew(1deg); }
+  30% { transform: translate(3px, -2px) skew(-2deg); }
+  40% { transform: translate(-1px, 2px) skew(1deg); }
+  50% { transform: translate(2px, -3px) skew(-1deg); }
+  60% { transform: translate(-3px, 1px) skew(2deg); }
+  70% { transform: translate(2px, 1px) skew(-2deg); }
+  80% { transform: translate(-1px, -1px) skew(1deg); }
+  90% { transform: translate(1px, 2px) skew(-1deg); }
+}
+
+@keyframes glitch-before {
+  0%, 100% { transform: translate(0, 0); opacity: 0.7; }
+  10% { transform: translate(-2px, -2px); opacity: 0.8; }
+  20% { transform: translate(-4px, 2px); opacity: 0.6; }
+  30% { transform: translate(2px, -1px); opacity: 0.8; }
+  40% { transform: translate(-1px, 2px); opacity: 0.7; }
+  50% { transform: translate(2px, 1px); opacity: 0.8; }
+  60% { transform: translate(-3px, 1px); opacity: 0.6; }
+  70% { transform: translate(1px, -2px); opacity: 0.8; }
+  80% { transform: translate(-2px, 1px); opacity: 0.7; }
+  90% { transform: translate(1px, -1px); opacity: 0.8; }
+}
+
+@keyframes glitch-after {
+  0%, 100% { transform: translate(0, 0); opacity: 0.7; }
+  10% { transform: translate(2px, 2px); opacity: 0.8; }
+  20% { transform: translate(4px, -2px); opacity: 0.6; }
+  30% { transform: translate(-2px, 1px); opacity: 0.8; }
+  40% { transform: translate(1px, -2px); opacity: 0.7; }
+  50% { transform: translate(-2px, -1px); opacity: 0.8; }
+  60% { transform: translate(3px, -1px); opacity: 0.6; }
+  70% { transform: translate(-1px, 2px); opacity: 0.8; }
+  80% { transform: translate(2px, -1px); opacity: 0.7; }
+  90% { transform: translate(-1px, 1px); opacity: 0.8; }
+}
+
+
+.slider{
+    width: 100%;
+}
+
+.slider input{
+    display: none;
+}
+
+.testimonials{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 200px;
+    position: relative;
+    min-height: 300px;
+    perspective: 1000px;
+    overflow: hidden;
+}
+
+.testimonials .item{
+    width: 300px;
+    border-radius: 5px;
+    /*background-color: #21262d;*/
+    position: absolute;
+    /*border: 2px solid white;*/
+    top: 0;
+    box-sizing: border-box;
+    text-align: center;
+    transition: transform 0.4s;
+    /*box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);*/
+    user-select: none;
+    cursor: pointer;
+    min-height: 200px;
+}
+
+.dots{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /*margin-left: 215px;*/
+    padding: 0 0 100px 0;
+    display: none;
+}
+
+.dots label{
+   height: 5px;
+   width: 5px;
+   cursor: pointer;
+   background-color: skyblue;
+   margin: 7px;
+   transition-duration: 0.2s;
+}
+
+label img{
+    width: 100%;
+    box-sizing: border-box;
+    border-radius: 3px;
+}
+
+/* Try to figure out how to compile this to at most 10 lines*/
+
+#t-1:checked ~ .dots label[for="t-1"],
+#t-2:checked ~ .dots label[for="t-2"],
+#t-3:checked ~ .dots label[for="t-3"],
+#t-4:checked ~ .dots label[for="t-4"],
+#t-5:checked ~ .dots label[for="t-5"] {
+    transform: scale(2);
+    background-color: white;
+    box-shadow: 0 0 0 3px #dddddd24;
+}
+
+#t-1:checked ~ .dots label[for="t-2"],
+#t-2:checked ~ .dots label[for="t-1"],
+#t-2:checked ~ .dots label[for="t-3"],
+#t-3:checked ~ .dots label[for="t-2"],
+#t-3:checked ~ .dots label[for="t-4"],
+#t-4:checked ~ .dots label[for="t-3"],
+#t-4:checked ~ .dots label[for="t-5"],
+#t-5:checked ~ .dots label[for="t-4"]{
+    transform: scale(1.5);
+}
+
+#t-1:checked ~ .testimonials label[for="t-3"],
+#t-2:checked ~ .testimonials label[for="t-4"],
+#t-3:checked ~ .testimonials label[for="t-5"],
+#t-4:checked ~ .testimonials label[for="t-1"],
+#t-5:checked ~ .testimonials label[for="t-2"]{
+    transform: translate3d(600px, 0px, -180px) rotateY(-25deg);
+    z-index: 2;
+}
+
+#t-1:checked ~ .testimonials label[for="t-2"],
+#t-2:checked ~ .testimonials label[for="t-3"],
+#t-3:checked ~ .testimonials label[for="t-4"],
+#t-4:checked ~ .testimonials label[for="t-5"],
+#t-5:checked ~ .testimonials label[for="t-1"]{
+    transform: translate3d(300px, 0px, -90px) rotateY(-15deg);
+    z-index: 3;
+}
+
+#t-2:checked ~ .testimonials label[for="t-1"],
+#t-3:checked ~ .testimonials label[for="t-2"],
+#t-4:checked ~ .testimonials label[for="t-3"],
+#t-5:checked ~ .testimonials label[for="t-4"],
+#t-1:checked ~ .testimonials label[for="t-5"]{
+    transform: translate3d(-300px, 0px, -90px) rotateY(15deg);
+    z-index: 3;
+}
+
+#t-3:checked ~ .testimonials label[for="t-1"],
+#t-4:checked ~ .testimonials label[for="t-2"],
+#t-5:checked ~ .testimonials label[for="t-3"],
+#t-2:checked ~ .testimonials label[for="t-5"],
+#t-1:checked ~ .testimonials label[for="t-4"]{
+    transform: translate3d(-600px, 0px, -180px) rotateY(25deg);
+}
+
+#t-1:checked ~ .testimonials label[for="t-1"],
+#t-2:checked ~ .testimonials label[for="t-2"],
+#t-3:checked ~ .testimonials label[for="t-3"],
+#t-4:checked ~ .testimonials label[for="t-4"],
+#t-5:checked ~ .testimonials label[for="t-4"]
+#t-5:checked ~ .testimonials label[for="t-5"]{
+    z-index: 4;
+}

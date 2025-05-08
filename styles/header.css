@@ -1,0 +1,48 @@
+.header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 2;
+    height: 60px;
+    background-color: white;
+}
+
+.logo{
+    font-size: 25px;
+    color: #080808;
+    text-decoration: none;
+    font-weight: 600;
+    margin-left: 20px;
+    font-family: 'Consolas', monospace;
+}
+
+.typed-cursor {
+    animation: typedjs-blink 3s infinite; /* Increase 1.2s for slower blink */
+  }
+  
+  @keyframes typedjs-blink {
+    0%, 49% { opacity: 1; }
+    50%, 100% { opacity: 0; }
+  }
+
+.navbar{
+    padding: 0 100px 0 0;
+}
+
+.navbar a{
+    font-size: 18px;
+    color: #080808;
+    text-decoration: none;
+    font-weight: 700;
+    margin: 0 0 0 45px;
+    transition: .3s;
+}
+
+.navbar a:hover{
+    color: rgb(112, 104, 104);
+    font-weight: bold;
+}
