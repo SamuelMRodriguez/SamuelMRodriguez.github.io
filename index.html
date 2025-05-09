@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edgg">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
         <title> Resume </title>
@@ -20,6 +20,9 @@
         <header class="header">
             <a class="logo"> C:\Users\SamuelJrRodriguez\Info> <span class="terminal"></span></a>     
             
+            <button class="menu-toggle" aria-label="Open navigation menu" aria-expanded="false">
+                &#9776;
+            </button>
             <nav class="navbar">
                 <a href="#home" class="active">Home</a>
                 <a href="#about">About</a>
@@ -77,22 +80,26 @@
                 </div>
             </div>
 
-            <section class="about" id="about">
-                <div class="about-content">
-                    <h1>About Me</h1>
-                    <h1>About Me</h1>
-                    <div class="text">
-                       <p>
-                        Hello! My name is Samuel Rodriguez. I am a Computer Science student attending Florida International University. I am a passionate programmer with a strong interest in software development and web design. I have experience in various programming languages, including Python, Java, C++, and JavaScript. I am also proficient in HTML and CSS for web development. I enjoy solving complex problems and creating efficient algorithms. In my free time, I like to work on personal projects, contribute to open-source software, and learn new technologies. I am always eager to expand my knowledge and skills in the field of computer science.
-                        </p>
-                        <br>
-                        <p>
-                        Hello! My name is Samuel Rodriguez. I am a Computer Science student attending Florida International University. I am a passionate programmer with a strong interest in software development and web design. I have experience in various programming languages, including Python, Java, C++, and JavaScript. I am also proficient in HTML and CSS for web development. I enjoy solving complex problems and creating efficient algorithms. In my free time, I like to work on personal projects, contribute to open-source software, and learn new technologies. I am always eager to expand my knowledge and skills in the field of computer science.
-                        </p>
+            <div class="about-skills-row" id="about"> 
+                <section class="about" id="skills">
+                    <div class="about-content">
+                        <div class="about-title-effect">
+                            <h1>About Me</h1>
+                            <h1>About Me</h1>
+                        </div>
+                        <div class="text">
+                           <p>
+                            Hello! My name is Samuel Rodriguez. I am a Computer Science student attending Florida International University. I am a passionate programmer with a strong interest in software development and web design. I have experience in various programming languages, including Python, Java, C++, and JavaScript. I am also proficient in HTML and CSS for web development. I enjoy solving complex problems and creating efficient algorithms. In my free time, I like to work on personal projects, contribute to open-source software, and learn new technologies. I am always eager to expand my knowledge and skills in the field of computer science.
+                            </p>
+                            <br>
+                            <p>
+                            Hello! My name is Samuel Rodriguez. I am a Computer Science student attending Florida International University. I am a passionate programmer with a strong interest in software development and web design. I have experience in various programming languages, including Python, Java, C++, and JavaScript. I am also proficient in HTML and CSS for web development. I enjoy solving complex problems and creating efficient algorithms. In my free time, I like to work on personal projects, contribute to open-source software, and learn new technologies. I am always eager to expand my knowledge and skills in the field of computer science.
+                            </p>
+                        </div>
                     </div>
-                </div>
+                </section>
 
-                <div class="My-Skills" id="skills">
+                <div class="My-Skills">
                     <div class="My-Skills2">
                         <div class="waviy">
                             <span style="--i:1">S</span>
@@ -102,7 +109,7 @@
                             <span style="--i:5">L</span>
                             <span style="--i:6">S</span>
                            </div>
-                        <div>
+                        <div class="skills-buttons-container">
                             <button>HTML</button> 
                             <button>CSS</button> 
                             <button>JavaScript</button> 
@@ -119,11 +126,11 @@
                         </div>                      
                     </div>
                 </div>
-            </section>
+            </div>
 
-            <section class="Experience-container">
+            <section class="Experience-container" id="experience">
                 <div class="experience-content">
-                    <h1>Experience</h1>
+                    <h1 id="experience-title" >Experience</h1>
                     <div class="text">
                         <div class="data-assistant">
                             <h2>Program Data Assistant</h2>
@@ -135,7 +142,6 @@
                                 ● Adapted quickly to new software tools and systems, streamlining eligibility processes and supporting efficient program operations, while offering bilingual support to diverse clients.
                             </p>
                         </div>
-                        <br>
                         <div class="web-developer">
                             <h2>Web Developer</h2>
                             <h4>VivaFlorece - Remote Internship</h4>
@@ -164,34 +170,25 @@
                         <input type="radio" name="testimonial" id="t-5">
 
                         <div class="testimonials">
-                            <label class="item" for="t-1" data-link="https://myanimelist.net/manga/3/20th_Century_Boys">
+                            <label class="item" for="t-1" data-link="https://myanimelist.net/manga/3/20th_Century_Boys" data-index="0">
                                 <img src="images/laptop Friend.png">
                             </label>
 
-                            <label class="item" for="t-2" data-link="https://myanimelist.net/anime/199/Sen_to_Chihiro_no_Kamikakushi?q=spirited%20away&cat=anime">
+                            <label class="item" for="t-2" data-link="https://myanimelist.net/anime/199/Sen_to_Chihiro_no_Kamikakushi?q=spirited%20away&cat=anime" data-index="1">
                                 <img src="images/laptop Spirited Away.png">
                             </label>
 
-                            <label class="item" for="t-3" data-link="https://myanimelist.net/manga/936/Homunculus?q=hom&cat=manga">
+                            <label class="item" for="t-3" data-link="https://myanimelist.net/manga/936/Homunculus?q=hom&cat=manga" data-index="2">
                                 <img src="images/laptop Homonculus.png">
                             </label>
 
-                            <label class="item" for="t-4" data-link="https://myanimelist.net/manga/656/Vagabond?q=vagabon&cat=manga">
-                                <img src="images/laptop VagaBond.png">
+                            <label class="item" for="t-4" data-link="https://eforms.com/images/2018/03/Employment-Job-Application.pdf" data-index="3">
+                                <img src="images/laptop Kevin.png">
                             </label>
 
-                            <label class="item" for="t-5" data-link="https://myanimelist.net/manga/4632/Oyasumi_Punpun?q=punpun&cat=manga">
+                            <label class="item" for="t-5" data-link="https://myanimelist.net/manga/4632/Oyasumi_Punpun?q=punpun&cat=manga" data-index="4">
                                 <img src="images/laptop PunPun.png">
                             </label>
-                        </div>
-                        <br/>
-
-                        <div class="dots">
-                            <label for="t-1"></label>
-                            <label for="t-2"></label>
-                            <label for="t-3"></label>
-                            <label for="t-4"></label>
-                            <label for="t-5"></label>
                         </div>
                     </div>
             </section>

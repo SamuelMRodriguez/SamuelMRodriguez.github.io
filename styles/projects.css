@@ -1,109 +1,32 @@
+/* --- GLOBAL RESETS --- */
 *,
 *::before,
 *::after {
   box-sizing: border-box;
 }
 
-/*:root {
+/*
+:root {
   --color-primary: #000000;
   --color-secondary: #000000;
   --color-tertiary: #000000;
   --color-quaternary: #000000;
   --color-quinary: #000000;
-}*/
+}
+*/
 
+/* --- GENERAL PROJECT SECTION STYLES --- */
 .Project-container {
-  padding-top: 210px;
-  margin-top: -210px;
+  padding-top: 10.9375vw; /* 210px */
+  margin-top: -10.9375vw; /* -210px */
 }
 
-
-.Project{
+.Project {
   display: flex;
   align-content: center;
   justify-content: center;
-  margin: 0 0 120px 0px;
+  margin: 0 0 6.25vw 0px; /* 120px */
 }
-
-/*
-.Project h1{
-  text-shadow: 3px 3px 0 var(--color-secondary), 6px 6px 0 var(--color-tertiary),
-    9px 9px var(--color-quaternary), 12px 12px 0 var(--color-quinary);
-  font-family: bungee, sans-serif;
-  font-weight: 400;
-  text-transform: uppercase;
-  font-size: calc(2rem + 5vw);
-  text-align: center;
-  margin: 0;
-  color: var(--color-primary);
-  background-clip: text;
-  animation: shadows 1.2s ease-in infinite, move 1.2s ease-in infinite;
-  letter-spacing: 0.4rem;
-}
-
-@keyframes shadows {
-  0% {
-    text-shadow: none;
-  }
-  10% {
-    text-shadow: 3px 3px 0 var(--color-secondary);
-  }
-  20% {
-    text-shadow: 3px 3px 0 var(--color-secondary),
-      6px 6px 0 var(--color-tertiary);
-  }
-  30% {
-    text-shadow: 3px 3px 0 var(--color-secondary),
-      6px 6px 0 var(--color-tertiary), 9px 9px var(--color-quaternary);
-  }
-  40% {
-    text-shadow: 3px 3px 0 var(--color-secondary),
-      6px 6px 0 var(--color-tertiary), 9px 9px var(--color-quaternary),
-      12px 12px 0 var(--color-quinary);
-  }
-  50% {
-    text-shadow: 3px 3px 0 var(--color-secondary),
-      6px 6px 0 var(--color-tertiary), 9px 9px var(--color-quaternary),
-      12px 12px 0 var(--color-quinary);
-  }
-  60% {
-    text-shadow: 3px 3px 0 var(--color-secondary),
-      6px 6px 0 var(--color-tertiary), 9px 9px var(--color-quaternary),
-      12px 12px 0 var(--color-quinary);
-  }
-  70% {
-    text-shadow: 3px 3px 0 var(--color-secondary),
-      6px 6px 0 var(--color-tertiary), 9px 9px var(--color-quaternary);
-  }
-  80% {
-    text-shadow: 3px 3px 0 var(--color-secondary),
-      6px 6px 0 var(--color-tertiary);
-  }
-  90% {
-    text-shadow: 3px 3px 0 var(--color-secondary);
-  }
-  100% {
-    text-shadow: none;
-  }
-}
-
-@keyframes move {
-  0% {
-    transform: translate(0px, 0px);
-  }
-  40% {
-    transform: translate(-12px, -12px);
-  }
-  50% {
-    transform: translate(-12px, -12px);
-  }
-  60% {
-    transform: translate(-12px, -12px);
-  }
-  100% {
-    transform: translate(0px, 0px);
-  }
-}*/
 
 .Project h1 {
   font-family: bungee, sans-serif;
@@ -117,7 +40,7 @@
   position: relative;
   z-index: 1;
   animation: glitch-main 7s infinite linear alternate-reverse;
-  text-shadow: 0 0 2px #222, 0 0 8px #222;
+  text-shadow: 0 0 0.104167vw #222, 0 0 0.416667vw #222; 
 }
 
 .Project h1::before,
@@ -150,168 +73,251 @@
   clip-path: polygon(0 60%, 100% 58%, 100% 100%, 0 100%);
 }
 
+/* --- KEYFRAME ANIMATIONS (GLITCH EFFECT) --- */
 @keyframes glitch-main {
   0%, 100% { transform: none; }
-  10% { transform: translate(-2px, 2px) skew(-1deg); }
-  20% { transform: translate(-4px, 1px) skew(1deg); }
-  30% { transform: translate(3px, -2px) skew(-2deg); }
-  40% { transform: translate(-1px, 2px) skew(1deg); }
-  50% { transform: translate(2px, -3px) skew(-1deg); }
-  60% { transform: translate(-3px, 1px) skew(2deg); }
-  70% { transform: translate(2px, 1px) skew(-2deg); }
-  80% { transform: translate(-1px, -1px) skew(1deg); }
-  90% { transform: translate(1px, 2px) skew(-1deg); }
+  10% { transform: translate(-0.104167vw, 0.104167vw) skew(-1deg); } /* -2px, 2px */
+  20% { transform: translate(-0.208333vw, 0.052083vw) skew(1deg); } /* -4px, 1px */
+  30% { transform: translate(0.15625vw, -0.104167vw) skew(-2deg); } /* 3px, -2px */
+  40% { transform: translate(-0.052083vw, 0.104167vw) skew(1deg); } /* -1px, 2px */
+  50% { transform: translate(0.104167vw, -0.15625vw) skew(-1deg); } /* 2px, -3px */
+  60% { transform: translate(-0.15625vw, 0.052083vw) skew(2deg); } /* -3px, 1px */
+  70% { transform: translate(0.104167vw, 0.052083vw) skew(-2deg); } /* 2px, 1px */
+  80% { transform: translate(-0.052083vw, -0.052083vw) skew(1deg); } /* -1px, -1px */
+  90% { transform: translate(0.052083vw, 0.104167vw) skew(-1deg); } /* 1px, 2px */
 }
 
 @keyframes glitch-before {
   0%, 100% { transform: translate(0, 0); opacity: 0.7; }
-  10% { transform: translate(-2px, -2px); opacity: 0.8; }
-  20% { transform: translate(-4px, 2px); opacity: 0.6; }
-  30% { transform: translate(2px, -1px); opacity: 0.8; }
-  40% { transform: translate(-1px, 2px); opacity: 0.7; }
-  50% { transform: translate(2px, 1px); opacity: 0.8; }
-  60% { transform: translate(-3px, 1px); opacity: 0.6; }
-  70% { transform: translate(1px, -2px); opacity: 0.8; }
-  80% { transform: translate(-2px, 1px); opacity: 0.7; }
-  90% { transform: translate(1px, -1px); opacity: 0.8; }
+  10% { transform: translate(-0.104167vw, -0.104167vw); opacity: 0.8; } /* -2px, -2px */
+  20% { transform: translate(-0.208333vw, 0.104167vw); opacity: 0.6; }  /* -4px, 2px */
+  30% { transform: translate(0.104167vw, -0.052083vw); opacity: 0.8; }  /* 2px, -1px */
+  40% { transform: translate(-0.052083vw, 0.104167vw); opacity: 0.7; }  /* -1px, 2px */
+  50% { transform: translate(0.104167vw, 0.052083vw); opacity: 0.8; }   /* 2px, 1px */
+  60% { transform: translate(-0.15625vw, 0.052083vw); opacity: 0.6; }  /* -3px, 1px */
+  70% { transform: translate(0.052083vw, -0.104167vw); opacity: 0.8; }  /* 1px, -2px */
+  80% { transform: translate(-0.104167vw, 0.052083vw); opacity: 0.7; }  /* -2px, 1px */
+  90% { transform: translate(0.052083vw, -0.052083vw); opacity: 0.8; }  /* 1px, -1px */
 }
 
 @keyframes glitch-after {
   0%, 100% { transform: translate(0, 0); opacity: 0.7; }
-  10% { transform: translate(2px, 2px); opacity: 0.8; }
-  20% { transform: translate(4px, -2px); opacity: 0.6; }
-  30% { transform: translate(-2px, 1px); opacity: 0.8; }
-  40% { transform: translate(1px, -2px); opacity: 0.7; }
-  50% { transform: translate(-2px, -1px); opacity: 0.8; }
-  60% { transform: translate(3px, -1px); opacity: 0.6; }
-  70% { transform: translate(-1px, 2px); opacity: 0.8; }
-  80% { transform: translate(2px, -1px); opacity: 0.7; }
-  90% { transform: translate(-1px, 1px); opacity: 0.8; }
+  10% { transform: translate(0.104167vw, 0.104167vw); opacity: 0.8; }   /* 2px, 2px */
+  20% { transform: translate(0.208333vw, -0.104167vw); opacity: 0.6; }  /* 4px, -2px */
+  30% { transform: translate(-0.104167vw, 0.052083vw); opacity: 0.8; }  /* -2px, 1px */
+  40% { transform: translate(0.052083vw, -0.104167vw); opacity: 0.7; }  /* 1px, -2px */
+  50% { transform: translate(-0.104167vw, -0.052083vw); opacity: 0.8; } /* -2px, -1px */
+  60% { transform: translate(0.15625vw, -0.052083vw); opacity: 0.6; }  /* 3px, -1px */
+  70% { transform: translate(-0.052083vw, 0.104167vw); opacity: 0.8; }  /* -1px, 2px */
+  80% { transform: translate(0.104167vw, -0.052083vw); opacity: 0.7; }  /* 2px, -1px */
+  90% { transform: translate(-0.052083vw, 0.052083vw); opacity: 0.8; }  /* -1px, 1px */
 }
 
-
-.slider{
+/* --- GENERAL SLIDER/CAROUSEL STYLES --- */
+.slider {
     width: 100%;
 }
 
-.slider input{
+.slider input {
     display: none;
 }
 
-.testimonials{
+.testimonials {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 200px;
+    margin-bottom: 10.416667vw; /* 200px */
     position: relative;
-    min-height: 300px;
-    perspective: 1000px;
+    min-height: 15.625vw; /* 300px */
+    perspective: 52.083333vw; /* 1000px */
     overflow: hidden;
 }
 
-.testimonials .item{
-    width: 300px;
-    border-radius: 5px;
+.testimonials .item {
+    width: 18vw; /* Adjusted from 15.625vw, then to 23vw, then back to 18vw as per latest user request */
+    border-radius: 0.260417vw; /* 5px */
     /*background-color: #21262d;*/
     position: absolute;
-    /*border: 2px solid white;*/
+    /*border: 2px solid white; -> 0.104167vw */
     top: 0;
     box-sizing: border-box;
     text-align: center;
     transition: transform 0.4s;
-    /*box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);*/
+    /*box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); -> 0 0 0.520833vw */
     user-select: none;
     cursor: pointer;
-    min-height: 200px;
+    min-height: 12vw; /* Adjusted from 10.416667vw as per latest user request */
 }
 
-.dots{
-    display: flex;
+.dots {
+    display: flex; /* Default to flex, will be overridden by desktop/mobile specific */
     justify-content: center;
     align-items: center;
-    /*margin-left: 215px;*/
-    padding: 0 0 100px 0;
-    display: none;
+    /*margin-left: 215px; -> 11.197917vw */
+    padding: 0 0 5.208333vw 0; /* 100px */
+    display: none; /* Hidden by default, shown by desktop media query */
 }
 
-.dots label{
-   height: 5px;
-   width: 5px;
+.dots label {
+   height: 0.260417vw; /* 5px */
+   width: 0.260417vw; /* 5px */
    cursor: pointer;
    background-color: skyblue;
-   margin: 7px;
+   margin: 0.364583vw; /* 7px */
    transition-duration: 0.2s;
 }
 
-label img{
+label img { /* This applies to images inside labels, likely for the carousel items */
     width: 100%;
     box-sizing: border-box;
     border-radius: 3px;
 }
 
-/* Try to figure out how to compile this to at most 10 lines*/
+/* --- DESKTOP-ONLY 3D CAROUSEL AND DOTS STYLING --- */
+@media (min-width: 769px) {
+    #t-1:checked ~ .testimonials label[for="t-3"],
+    #t-2:checked ~ .testimonials label[for="t-4"],
+    #t-3:checked ~ .testimonials label[for="t-5"],
+    #t-4:checked ~ .testimonials label[for="t-1"],
+    #t-5:checked ~ .testimonials label[for="t-2"] {
+        transform: translate3d(31.25vw, 0px, -9.375vw) rotateY(-25deg); /* Far Right */
+        z-index: 2;
+    }
 
-#t-1:checked ~ .dots label[for="t-1"],
-#t-2:checked ~ .dots label[for="t-2"],
-#t-3:checked ~ .dots label[for="t-3"],
-#t-4:checked ~ .dots label[for="t-4"],
-#t-5:checked ~ .dots label[for="t-5"] {
-    transform: scale(2);
-    background-color: white;
-    box-shadow: 0 0 0 3px #dddddd24;
+    #t-1:checked ~ .testimonials label[for="t-2"],
+    #t-2:checked ~ .testimonials label[for="t-3"],
+    #t-3:checked ~ .testimonials label[for="t-4"],
+    #t-4:checked ~ .testimonials label[for="t-5"],
+    #t-5:checked ~ .testimonials label[for="t-1"] {
+        transform: translate3d(15.625vw, 0px, -4.6875vw) rotateY(-15deg); /* Near Right */
+        z-index: 3;
+    }
+
+    #t-1:checked ~ .testimonials label[for="t-5"],
+    #t-2:checked ~ .testimonials label[for="t-1"],
+    #t-3:checked ~ .testimonials label[for="t-2"],
+    #t-4:checked ~ .testimonials label[for="t-3"],
+    #t-5:checked ~ .testimonials label[for="t-4"] {
+        transform: translate3d(-15.625vw, 0px, -4.6875vw) rotateY(15deg); /* Near Left */
+        z-index: 3;
+    }
+
+    #t-1:checked ~ .testimonials label[for="t-4"],
+    #t-2:checked ~ .testimonials label[for="t-5"],
+    #t-3:checked ~ .testimonials label[for="t-1"],
+    #t-4:checked ~ .testimonials label[for="t-2"],
+    #t-5:checked ~ .testimonials label[for="t-3"] {
+        transform: translate3d(-31.25vw, 0px, -9.375vw) rotateY(25deg); /* Far Left */
+        z-index: 2;
+    }
+
+    #t-1:checked ~ .testimonials label[for="t-1"],
+    #t-2:checked ~ .testimonials label[for="t-2"],
+    #t-3:checked ~ .testimonials label[for="t-3"],
+    #t-4:checked ~ .testimonials label[for="t-4"],
+    #t-5:checked ~ .testimonials label[for="t-5"] {
+        z-index: 4; /* Center item */
+    }
+
+    .dots {
+        display: flex; /* Show dots on desktop */
+    }
 }
 
-#t-1:checked ~ .dots label[for="t-2"],
-#t-2:checked ~ .dots label[for="t-1"],
-#t-2:checked ~ .dots label[for="t-3"],
-#t-3:checked ~ .dots label[for="t-2"],
-#t-3:checked ~ .dots label[for="t-4"],
-#t-4:checked ~ .dots label[for="t-3"],
-#t-4:checked ~ .dots label[for="t-5"],
-#t-5:checked ~ .dots label[for="t-4"]{
-    transform: scale(1.5);
-}
+/* --- MOBILE STYLES (max-width: 768px) --- */
+@media (max-width: 768px) {
+    .Project-container {
+        padding-top: 200px; 
+        padding-bottom: 20px; 
+        width: 100vw;
+        margin-left: -15px; /* Counteracts 15px body left padding if body has padding */
+        margin-right: -15px; /* Counteracts 15px body right padding if body has padding */
+        box-sizing: border-box;
+        margin-top: 0; /* Reset desktop margin-top */
+    }
 
-#t-1:checked ~ .testimonials label[for="t-3"],
-#t-2:checked ~ .testimonials label[for="t-4"],
-#t-3:checked ~ .testimonials label[for="t-5"],
-#t-4:checked ~ .testimonials label[for="t-1"],
-#t-5:checked ~ .testimonials label[for="t-2"]{
-    transform: translate3d(600px, 0px, -180px) rotateY(-25deg);
-    z-index: 2;
-}
+    .Project-container .Project {
+        padding-left: 15px;
+        padding-right: 15px;
+        display: flex;
+        align-content: center;
+        justify-content: center;
+        margin-bottom: 1.5rem;
+        padding-bottom: 20px;
+    }
 
-#t-1:checked ~ .testimonials label[for="t-2"],
-#t-2:checked ~ .testimonials label[for="t-3"],
-#t-3:checked ~ .testimonials label[for="t-4"],
-#t-4:checked ~ .testimonials label[for="t-5"],
-#t-5:checked ~ .testimonials label[for="t-1"]{
-    transform: translate3d(300px, 0px, -90px) rotateY(-15deg);
-    z-index: 3;
-}
+    .Project-container .Project h1 {
+        font-size: 2.5rem; /* Adjusted from 3.5rem as per user request */
+        letter-spacing: 0.1rem; 
+        /* animation: none; /* Optionally disable glitch on mobile */
+    }
+    
+    .slider { /* Mobile slider container */
+        width: 100%; 
+        overflow: hidden; 
+    }
 
-#t-2:checked ~ .testimonials label[for="t-1"],
-#t-3:checked ~ .testimonials label[for="t-2"],
-#t-4:checked ~ .testimonials label[for="t-3"],
-#t-5:checked ~ .testimonials label[for="t-4"],
-#t-1:checked ~ .testimonials label[for="t-5"]{
-    transform: translate3d(-300px, 0px, -90px) rotateY(15deg);
-    z-index: 3;
-}
+    .testimonials { /* Mobile testimonials container for scroll snap */
+        display: flex !important;
+        overflow-x: auto !important;
+        overflow-y: hidden !important;
+        scroll-snap-type: x mandatory !important;
+        -webkit-overflow-scrolling: touch;
+        padding-left: 0 !important; 
+        padding-right: 0 !important; 
+        width: 100% !important; 
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        justify-content: flex-start;
+        position: relative !important; 
+        min-height: auto !important; 
+        perspective: none !important;
+        padding-bottom: 0;
+        margin-bottom: 0; /* Reset desktop margin-bottom */
+    }
+    
+    /* Scrollbar Hiding for Mobile Testimonials */
+    .testimonials::-webkit-scrollbar { 
+        display: none; 
+    }
+    .testimonials { /* For Firefox and IE */
+        scrollbar-width: none; 
+        -ms-overflow-style: none;  
+    }
+    
+    .testimonials .item { /* Mobile item styles */
+        width: 95vw !important;
+        min-width: 95vw;
+        height: auto !important;
+        margin: 0 2.5vw !important; 
+        scroll-snap-align: center !important;
+        position: relative !important; 
+        transform: none !important;    
+        opacity: 1 !important;         
+        z-index: 1 !important;         
+        flex: 0 0 auto !important;
+        top: auto !important;          
+        left: auto !important;         
+        cursor: grab; 
+        box-shadow: none !important; 
+    }
 
-#t-3:checked ~ .testimonials label[for="t-1"],
-#t-4:checked ~ .testimonials label[for="t-2"],
-#t-5:checked ~ .testimonials label[for="t-3"],
-#t-2:checked ~ .testimonials label[for="t-5"],
-#t-1:checked ~ .testimonials label[for="t-4"]{
-    transform: translate3d(-600px, 0px, -180px) rotateY(25deg);
-}
+    .testimonials .item img { /* Image within mobile item */
+        width: 100%;
+        height: auto;
+        display: block; 
+    }
 
-#t-1:checked ~ .testimonials label[for="t-1"],
-#t-2:checked ~ .testimonials label[for="t-2"],
-#t-3:checked ~ .testimonials label[for="t-3"],
-#t-4:checked ~ .testimonials label[for="t-4"],
-#t-5:checked ~ .testimonials label[for="t-4"]
-#t-5:checked ~ .testimonials label[for="t-5"]{
-    z-index: 4;
+    .testimonials::before,
+    .testimonials::after { /* Remove pseudo-elements if they cause spacing issues */
+        content: none !important;
+    }
+
+    .dots { /* Hide dots on mobile */
+        display: none !important; 
+    }
+
+    .slider input[type="radio"] { /* Hide radio buttons on mobile */
+        display: none !important;
+    }
 }

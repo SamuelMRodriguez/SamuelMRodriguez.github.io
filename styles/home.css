@@ -1,109 +1,138 @@
-.about{
-    height: 100vh;
+/* === KEYFRAME ANIMATIONS === */
+@keyframes animateAboutText {
+    0%,
+    100% {
+        clip-path: polygon(
+            0% 45%, 16% 44%, 33% 50%, 54% 60%, 70% 61%, 84% 59%,
+            100% 52%, 100% 100%, 0% 100%
+        );
+    }
+    50% {
+        clip-path: polygon(
+            0% 60%, 15% 65%, 34% 66%, 51% 62%, 67% 50%, 84% 45%,
+            100% 46%, 100% 100%, 0% 100%
+        );
+    }
+}
+
+@keyframes flip {
+    0%,80% {
+      transform: rotateY(360deg) 
+    }
+}
+
+/* === GENERAL/DESKTOP-FIRST STYLES === */
+
+/* --- Main Layout --- */
+main {
+    display: flex;
+    flex-wrap: wrap; 
+}
+
+/* Sections that should take full width by default */
+.container, 
+.Experience-container,
+.Project-container {
+    flex: 0 0 100%; 
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* --- About Section --- */
+.about {
     display: flex;
     align-items: center;
-    padding: 0 10%;
+    padding: 0 10%; /* Global padding for .about */
     z-index: 1;
-}
-
-.about-content h1{
-    padding-bottom: 30px;
-    margin: 0 0 50px 150px;
-}
-
-.about-content p{
-    width: 750px;
-    height: fit-content;
-    color: black;
-    font-family: cursive;
+    box-sizing: border-box;
+    /* flex: 1 1 55%; /* Example: .about takes ~55% width - This is more specific, moved to desktop */
 }
 
 .about-content {
-    position: relative;
-  }
-  
-  .about-content h1 {
-    color: #fff;
-    font-size: 4em;
-    position: absolute;
-    transform: translate(-50%, -50%);
-  }
-  
-  .about-content h1:nth-child(1) {
-    color: transparent;
-    -webkit-text-stroke: 2px black;;
-  }
-  
-  .about-content h1:nth-child(2) {
-    color: black;;
-    animation: animate 4s ease-in-out infinite;
-  }
-  
-  @keyframes animate {
-    0%,
-    100% {
-      clip-path: polygon(
-        0% 45%,
-        16% 44%,
-        33% 50%,
-        54% 60%,
-        70% 61%,
-        84% 59%,
-        100% 52%,
-        100% 100%,
-        0% 100%
-      );
-    }
-  
-    50% {
-      clip-path: polygon(
-        0% 60%,
-        15% 65%,
-        34% 66%,
-        51% 62%,
-        67% 50%,
-        84% 45%,
-        100% 46%,
-        100% 100%,
-        0% 100%
-      );
-    }
-  }
-
-  .text{
-    margin: 40px 0 0 0;
-  }
-
-.My-Skills{
-    padding-top: 371px;
-    margin-top: -371px;
-  }
-
-.My-Skills2{
-    width: 700px;
-    margin-left: 250px;
+  position: relative; 
 }
 
-.waviy {
+.about-content h1 { /* This is a general h1 style within about-content, might be overridden by .about-title-effect h1 */
+    padding-bottom: 1.5625vw; /* 30px */
+    margin: 0 0 2.604167vw 7.8125vw; /* 50px 150px */
+}
+
+.about-content p {
+    width: 39.0625vw; /* 750px */
+    height: fit-content;
+    color: black;
+    font-family: cursive;
+    font-size: 1.6rem; 
+}
+
+.about-content .about-title-effect {
+  position: relative; 
+  top: 0vw;         
+  left: 0vw;          
+  width: auto;        
+  height: calc(3.333333vw * 1.2); 
+  margin-bottom: 0.5vw; 
+}
+
+.about-content .about-title-effect h1 {
+  font-size: 3.333333vw; 
+  line-height: 1.2;    
+  position: absolute; 
+  top: 0;
+  left: 0;
+  width: 100%;         
+  text-align: left;    
+  margin: 0;
+  padding: 0;
+}
+
+.about-content .about-title-effect h1:nth-child(1) {
+  color: transparent;
+  -webkit-text-stroke: 2px black; 
+  z-index: 1; 
+}
+
+.about-content .about-title-effect h1:nth-child(2) {
+  color: black; 
+  z-index: 2;   
+  animation: animateAboutText 4s ease-in-out infinite; 
+}
+
+.about-content .text {
+  display: block; 
+  margin-top: 0.5vw; 
+  width: 41.666667vw; 
+  margin-left: auto;   
+  margin-right: auto;  
+}
+
+/* --- Skills Section (Desktop-First/Replaced Styles) --- */
+.My-Skills { /* General .My-Skills styling */
+    box-sizing: border-box; 
+}
+
+.My-Skills2 { /* General .My-Skills2 styling */
+    width: 100%; 
+    margin: 0 auto !important;
+    overflow: hidden; 
+}
+
+.waviy { /* General .waviy styling */
     position: relative;
-  }
-  .waviy span {
+}
+
+.waviy span { /* General .waviy span styling */
     position: relative;
     display: inline-block;
     margin-bottom: 40px;
     font-size: 40px;
-    color: black;;
+    color: black;
     text-transform: uppercase;
     animation: flip 2s infinite;
-    animation-delay: calc(.2s * var(--i))
-  }
-  @keyframes flip {
-    0%,80% {
-      transform: rotateY(360deg) 
-    }
-  }
+    animation-delay: calc(.2s * var(--i));
+}
 
-.My-Skills2 div button{
+.My-Skills2 .skills-buttons-container button {
     position: relative;
     display: inline-flex;
     justify-content: center;
@@ -111,23 +140,23 @@
     height: 45px;
     border: 2px solid black;
     border-radius: 8px;
-    font-size: 19px;
+    font-size: 40px;
     text-decoration: none;
     font-weight: 600;
     letter-spacing: 1px;
     background: transparent;
     color: black;
-    z-index: 1;
+    z-index: 1; 
     overflow: hidden;
     padding: 0 10px 0 10px;
     margin: 5px 5px 5px 5px;
 }
 
-.My-Skills2 div button:hover{
+.My-Skills2 .skills-buttons-container button:hover {
     color: #4e4e4e;
 }
 
-.My-Skills2 div button::before{
+.My-Skills2 .skills-buttons-container button::before {
     content: '';
     position: absolute;
     top: 0;
@@ -139,56 +168,359 @@
     transition: .5s;
 }
 
-.My-Skills2 div button:hover::before{
+.My-Skills2 .skills-buttons-container button:hover::before {
     width: 100%;
 }
 
-
-.Experience-container{
-  padding-top: 270px;
-  margin-top: -270px;
-  margin-bottom: 330px;
-  padding-left: 175px;
-  z-index: 1;
-  position: relative;
+.My-Skills2 .skills-buttons-container {
+  display: flex; 
+  flex-wrap: wrap;
+  justify-content: center; 
 }
 
-.experience-content p{
-    color: black;
-    font-family: cursive;
+/* --- Experience Section (Desktop-First) --- */
+.Experience-container { /* General Experience-container styling */
+    padding: 4vw 8%; 
+    margin-top: 16vw; 
+    margin-bottom: 8vw; 
 }
 
-.experience-content h1{
-font-size: 60px;
-color: black;;
-}
-.experience-content h2{
-  color: black;;
-}
-
-.experience-content h4{
-  color: black;
+.experience-content h1#experience-title { 
+    font-size: 5rem; 
+    text-align: center;
+    margin-bottom: 2.5vw;
+    transition: font-size 0.3s ease-in-out; 
+    cursor: pointer; 
 }
 
-/* Grow effect for Experience roles on hover - slower and moves other content */
+.experience-content h1#experience-title:hover { 
+    font-size: 8.5rem; 
+}
+
 .experience-content .data-assistant,
-.experience-content .web-developer,
-.experience-content h1{
-  transition:
-    transform 1s cubic-bezier(.4,1.6,.6,1),
-    font-size 1s cubic-bezier(.4,1.6,.6,1);
-  display: block; /* Ensures it takes up space and pushes other content */
+.experience-content .web-developer {
+    background-color: transparent; 
+    border-radius: 8px;
+    padding: 2vw; 
+    margin-bottom: 1.5vw; 
+    box-shadow: 0 1px 3px rgba(0,0,0,0.02); 
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out, background-color 0.3s ease-in-out, border-color 0.3s ease-in-out;
+    display: block; 
+}
+
+.experience-content .data-assistant h2,
+.experience-content .web-developer h2 {
+    font-size: 2rem; 
+    margin-top: 0; 
+    margin-bottom: 0.3vw;
+    color: black; 
+    transition: font-size 0.3s ease-in-out; 
+}
+
+.experience-content .data-assistant h4,
+.experience-content .web-developer h4 {
+    font-size: 1.4rem; 
+    font-style: italic;
+    color: black; 
+    margin-bottom: 0.8vw;
+    transition: font-size 0.3s ease-in-out; 
+}
+
+.experience-content .data-assistant p,
+.experience-content .web-developer p {
+    font-size: 1.5rem;   
+    line-height: 1.6;
+    color: black; 
+    margin-bottom: 0; 
+    transition: font-size 0.3s ease-in-out, line-height 0.3s ease-in-out; 
 }
 
 .experience-content .data-assistant:hover,
-.experience-content .web-developer:hover
- {
-  font-size: 1.24em;
-  z-index: 2;
-  /*box-shadow: 0 4px 24px 0 rgba(0,0,0,0.07);*/
+.experience-content .web-developer:hover {
+    transform: scale(1.12); 
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1); 
+    background-color: #ffffff; 
+    border-color: #e0e0e0; 
+    z-index: 10; 
 }
 
-.experience-content h1:hover{
-  font-size: 100px;
-  z-index: 2;
+.experience-content .data-assistant:hover h2,
+.experience-content .web-developer:hover h2 {
+    font-size: 2.2rem; 
+    color: black; 
+}
+
+.experience-content .data-assistant:hover h4,
+.experience-content .web-developer:hover h4 {
+    font-size: 1.6rem; 
+    color: black; 
+}
+
+.experience-content .data-assistant:hover p,
+.experience-content .web-developer:hover p {
+    font-size: 1.25rem; 
+    line-height: 1.75; 
+    color: black; 
+}
+
+
+/* === DESKTOP STYLES (min-width: 769px) === */
+@media (min-width: 769px) {
+  main {
+    display: flex; /* This was already in general, but ensuring it for desktop context */
+    flex-wrap: wrap;
+    align-items: flex-start; 
+  }
+
+  /* Sections that should take full width and be on their own row */
+  .container, /* Home section */
+  .about-skills-row, /* The new wrapper */
+  .Experience-container,
+  .Project-container {
+    flex: 0 0 100%; 
+    width: 100%;    
+    box-sizing: border-box;
+  }
+
+  .about-skills-row {
+    display: flex; 
+    align-items: stretch; 
+  }
+
+  .about {
+    flex: 0 0 50%; 
+    padding: 0 10%; 
+    height: auto; 
+    /* ... other .about styles if specific to this layout ... */
+  }
+
+  .My-Skills {
+    flex: 0 0 50%; 
+    padding: 0 15% 0 0; 
+    margin-top: 5vw; 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    justify-content: flex-start; 
+  }
+
+  /* This rule seems very specific and might be an older one, kept as per instructions */
+  .My-Skills div button { 
+    margin-top: 100vw; 
+    box-sizing: border-box;
+    flex-direction: column; 
+    align-items: center; 
+    justify-content: flex-start; 
+  }
+
+  .My-Skills2 .skills-buttons-container button { /* More specific button styling for desktop */
+    border: 4px solid black;
+    border-radius: 12px;
+    font-size: 27px; 
+    font-weight: bold; /* Combined font-weight */ 
+    padding: 30px 15px; /* Adjusted padding for desktop */
+    margin: 9px;
+
+  }
+
+  .My-Skills2 { /* Desktop specific overrides for My-Skills2 if any */
+    /* width: 100%;  Already set */
+    display: flex; /* Already set */
+    flex-direction: column; /* Already set */
+    align-items: center;  /* Already set */
+  }
+
+  .waviy { /* Desktop specific overrides for .waviy */
+    text-align: center; 
+    margin-bottom: 25px; 
+    width: 100%; 
+  }
+
+   .waviy span { /* Desktop specific overrides for .waviy span */
+    font-size: 4rem; 
+    margin-bottom: 0; /* Overrides general .waviy span margin */
+    /* Other properties inherited or set by general .waviy span rule */
+   }
+
+  .My-Skills2 .skills-buttons-container { /* Desktop specific overrides for button container */
+    justify-content: flex-start; 
+    width: 100%; 
+    margin-top: 10px;
+  }
+}
+
+
+/* === MOBILE STYLES (max-width: 768px) === */
+@media (max-width: 768px) {
+  main {
+    flex-direction: column; 
+  }
+
+  /* Ensure all sections take full width on mobile */
+  .container,
+  .about,
+  .My-Skills,
+  .Experience-container,
+  .Project-container {
+    flex-basis: 100%; 
+    width: 100%;
+    flex-grow: 0; 
+    flex-shrink: 0; 
+    margin-left: 0; 
+    margin-right: 0; 
+    padding-left: 0; 
+    padding-right: 0; 
+  }
+
+  /* --- About Section (Mobile) --- */
+  .about {
+    padding-top: 0; 
+    padding-bottom: 0; 
+    height: auto;  
+    margin-bottom: 25px; 
+    margin-top: 40rem; /* This seems very large, check if intended */
+  }
+
+  .about-content .about-title-effect {
+    position: relative; 
+    width: 100%;        
+    height: calc(2.2rem * 1.2); 
+    margin: 0 auto 1.5rem auto; 
+    top: 0; 
+    left: 0; 
+    cursor: pointer; 
+  }
+
+  .about-content .about-title-effect h1 {
+    font-size: 2.2rem; 
+    line-height: 1.2;
+    /* position, top, left, width already set by general rule */
+    text-align: center; 
+    /* margin, padding already set by general rule */
+  }
+
+  .about-content .about-title-effect h1:nth-child(1) {
+    -webkit-text-stroke: 1.5px black; 
+    /* color, z-index already set */
+  }
+
+  .about-content .text {
+    margin-top: 0; 
+    width: 100% !important; /* This makes the container div full width */
+    margin-left: 0 !important; /* Explicitly reset */
+    margin-right: 0 !important; /* Explicitly reset */
+  }
+
+  .about-content .text p {
+    font-size: 1rem !important; 
+    line-height: 1.4 !important;
+    width: 100% !important; 
+    margin-left: 0; 
+    margin-right: 0;
+    padding-left: 0; 
+    padding-right: 0;
+    box-sizing: border-box; 
+  }
+
+  /* --- Skills Section (Mobile) --- */
+  .My-Skills {
+    padding-top: 25px; 
+    margin-top: 30px; 
+    margin-bottom: 250px; /* This seems very large, check if intended */
+  }
+
+  .My-Skills2 {
+    width: 100%; 
+    margin-left: 0; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .waviy span { /* Mobile override for .waviy span */
+    font-size: 1.6rem; 
+    margin-bottom: 15px; 
+  }
+  
+  /* Assuming .My-Skills2 div button is the intended selector for mobile skill buttons */
+  .My-Skills2 .skills-buttons-container button { 
+    height: 34px;
+    min-height: auto; 
+    font-size: 0.75rem; 
+    padding: 6px 6px; 
+    margin: 3px;
+    flex-grow: 1; 
+    letter-spacing: normal;
+    font-weight: 500;
+  }
+
+  /* --- Experience Section (Mobile) --- */
+  .Experience-container {
+    padding-top: 25px; 
+    margin-bottom: 25px; 
+    padding-left: 5%; 
+    padding-right: 5%;
+  }
+
+  .experience-content h1 { /* General h1 in experience for mobile, assuming #experience-title */
+    font-size: 1.8rem !important; 
+    text-align: center;
+  }
+
+
+  
+  .experience-content .data-assistant:hover,
+  .experience-content .web-developer:hover { /* Override desktop hover */
+    transform: none; 
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05); 
+    background-color: transparent; 
+  }
+
+  .experience-content .data-assistant,
+  .experience-content .web-developer { /* Mobile card styles */
+    cursor: pointer; 
+    padding: 15px; 
+    margin-bottom: 10px; 
+  }
+
+  /* Base text sizes for experience items on mobile (already defined above, ensuring consistency) */
+  .experience-content .data-assistant h2,
+  .experience-content .web-developer h2 {
+    font-size: 1.25rem;  /* Already set */
+    transition: font-size 0.3s ease-in-out;
+    margin-bottom: 0.25rem; 
+  }
+
+  .experience-content .data-assistant h4,
+  .experience-content .web-developer h4 {
+    font-size: 1rem;  /* Already set */
+    transition: font-size 0.3s ease-in-out;
+    margin-bottom: 0.5rem; 
+  }
+
+  .experience-content .data-assistant p,
+  .experience-content .web-developer p {
+    font-size: 0.9rem;  /* Already set */
+    line-height: 1.5;   /* Already set */
+    display: block !important; 
+    transition: font-size 0.3s ease-in-out, line-height 0.3s ease-in-out;
+    margin-top: 0; 
+  }
+
+  /* Expanded text sizes for experience items on mobile */
+  .experience-content .data-assistant.expanded h2,
+  .experience-content .web-developer.expanded h2 {
+    font-size: 1.6rem; 
+  }
+
+  .experience-content .data-assistant.expanded h4,
+  .experience-content .web-developer.expanded h4 {
+    font-size: 1.2rem; 
+  }
+
+  .experience-content .data-assistant.expanded p,
+  .experience-content .web-developer.expanded p {
+    font-size: 1.05rem; 
+    line-height: 1.6; 
+  }
 }

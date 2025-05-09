@@ -1,40 +1,51 @@
+/* --- SIDEBAR CONTAINER STYLES --- */
 .sidebar {
     position: fixed;
     left: 0;
     bottom: 0;
-    top: 55px;
-    width: 72px;
-    z-index: 200;
-    padding-top: 0px;
-    margin-top: 185px;
-    height: 301px;
-    border-radius: 3px 15px 15px 3px;
+    top: 2.864583vw; /* 55px at 1920px base */
+    width: 3.75vw; /* 72px at 1920px base */
+    z-index: 200; /* Ensure this z-index is appropriate for your layout */
+    padding-top: 0px; /* Assuming 0px is intentional */
+    margin-top: 9.635417vw; /* 185px at 1920px base */
+    height: 15.677083vw; /* 301px at 1920px base */
+    border-radius: 0.15625vw 0.78125vw 0.78125vw 0.15625vw; /* 3px 15px 15px 3px at 1920px base */
     overflow: hidden;
-    border: 4px solid black;
+    border: 0.208333vw solid black; /* 4px at 1920px base */
   }
   
+  /* --- SIDEBAR LINK STYLES --- */
   .sidebar-link {
-    height: 74px;
+    height: 3.854167vw; /* 74px at 1920px base */
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     cursor: pointer;
-    text-decoration: none;
+    text-decoration: none; /* Added to ensure links don't have default underline */
   }
   
   .sidebar-link:hover {
     background-color: rgb(235, 235, 235);
-    opacity: .5;
+    opacity: .5; /* Note: opacity affects the entire element, including children */
   }
   
+  /* --- SIDEBAR LINK IMAGE STYLES --- */
   .sidebar-link img {
-    height: 24px;
-    margin-bottom: 4px;
-    color: skyblue;
+    height: 1.25vw; /* 24px at 1920px base */
+    margin-bottom: 0.208333vw; /* 4px at 1920px base */
+    color: skyblue; /* Note: 'color' on an img tag usually doesn't have an effect unless it's an SVG or specific CSS filter is used */
   }
   
+  /* --- SIDEBAR LINK TEXT (DIV) STYLES --- */
   .sidebar-link div {
-    font-size: 10px;
+    font-size: 0.520833vw; /* 10px at 1920px base */
     color: #080808;
+  }
+  
+  /* --- RESPONSIVE STYLES (MOBILE) --- */
+  @media (max-width: 768px) {
+    .sidebar {
+        display: none; /* Hide sidebar on mobile devices */
+    }
   }

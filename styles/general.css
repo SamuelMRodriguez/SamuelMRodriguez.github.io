@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
 
+html {
+    font-size: 0.520833vw; /* Base for 1rem = 10px at 1920px width */
+}
+
 *{
     margin: 0;
     padding: 0;
@@ -18,6 +22,7 @@ body{
     animation: transitionIn 1.5s;
     align-items: center;
     min-height: 100vh;
+    overflow-x: hidden; /* Add this line */
 }
 
 @keyframes transitionIn{
@@ -29,5 +34,16 @@ body{
     to{
         opacity: 1;
         transform: rotateX(0);
+    }
+}
+
+@media (max-width: 768px) {
+    html {
+        font-size: 16px; /* Base font size for mobile, 1rem = 16px */
+    }
+
+    body {
+        padding-left: 15px; /* Add some horizontal padding for content */
+        padding-right: 15px;
     }
 }

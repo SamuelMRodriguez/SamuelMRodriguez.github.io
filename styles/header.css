@@ -1,4 +1,4 @@
-.header{
+.header {
     position: fixed;
     top: 0;
     left: 0;
@@ -6,43 +6,157 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    z-index: 2;
-    height: 60px;
+    z-index: 2; /* Ensure this is appropriate for your stacking context */
+    height: 3.125vw; /* 60px at 1920px base */
     background-color: white;
 }
 
-.logo{
-    font-size: 25px;
+.logo {
+    font-size: 1.302083vw; /* 25px at 1920px base */
     color: #080808;
     text-decoration: none;
     font-weight: 600;
-    margin-left: 20px;
+    margin-left: 1.041667vw; /* 20px at 1920px base */
     font-family: 'Consolas', monospace;
 }
 
+/* --- TYPED CURSOR STYLES --- */
 .typed-cursor {
-    animation: typedjs-blink 3s infinite; /* Increase 1.2s for slower blink */
-  }
+    animation: typedjs-blink 3s infinite; /* Slower blink */
+}
   
-  @keyframes typedjs-blink {
-    0%, 49% { opacity: 1; }
-    50%, 100% { opacity: 0; }
-  }
-
-.navbar{
-    padding: 0 100px 0 0;
+@keyframes typedjs-blink {
+    0%, 49% { 
+        opacity: 1; 
+    }
+    50%, 100% { 
+        opacity: 0; 
+    }
 }
 
-.navbar a{
-    font-size: 18px;
+/* --- DESKTOP NAVIGATION BAR STYLES --- */
+.navbar {
+    padding: 0 5.208333vw 0 0; /* 100px right padding at 1920px base */
+}
+
+.navbar a {
+    font-size: 0.9375vw; /* 18px at 1920px base */
     color: #080808;
     text-decoration: none;
     font-weight: 700;
-    margin: 0 0 0 45px;
+    margin: 0 0 0 2.34375vw; /* 45px left margin at 1920px base */
     transition: .3s;
 }
 
-.navbar a:hover{
+.navbar a:hover {
     color: rgb(112, 104, 104);
     font-weight: bold;
+}
+
+/* --- MENU TOGGLE (HAMBURGER ICON) - DEFAULT HIDDEN --- */
+.menu-toggle {
+    display: none; /* Hidden by default, shown on mobile */
+    background: none;
+    border: none;
+    font-size: 28px; /* Size of hamburger icon */
+    color: #080808;
+    cursor: pointer;
+    padding: 5px 15px;
+    z-index: 1001; /* Ensure it's above other header content if overlapping */
+}
+
+/* --- RESPONSIVE STYLES (MOBILE) --- */
+@media (max-width: 768px) {
+    .header {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        padding: 0 10px;
+        position: fixed; 
+        top: 0;
+        left: 0;
+        width: 100%;
+        background-color: white;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        z-index: 1002; 
+        height: 50px; 
+    }
+
+    .logo {
+        font-size: 9px; 
+        font-family: 'Consolas', monospace; 
+        color: #080808;
+        text-decoration: none;
+        font-weight: 600;
+        margin-left: 0; 
+        white-space: nowrap; 
+        overflow: hidden; 
+        text-overflow: ellipsis; 
+        flex-shrink: 1;
+        min-width: 0;
+        line-height: 50px; /* Match header height for vertical alignment */
+        margin-right: 45px; /* Space for the toggle button */
+    }
+
+    .logo .terminal,
+    .logo .typed-cursor {
+        font-size: 9px; 
+        vertical-align: middle; 
+    }
+
+    .menu-toggle {
+        position: absolute;
+        top: 0;
+        right: 0;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 22px; 
+        color: #080808;
+        background: none;
+        border: none;
+        padding: 0 12px;
+        cursor: pointer;
+        z-index: 1003;
+    }
+
+    .navbar {
+        display: none; 
+        position: absolute;
+        top: 100%; /* Position below the header */
+        right: 0;
+        left: auto; /* Override any desktop left positioning */
+        width: 132px; 
+        max-width: 50vw;
+        background-color: white;
+        box-shadow: -2px 2px 5px rgba(0,0,0,0.1);
+        flex-direction: column;
+        align-items: stretch;
+        padding: 8px 0;
+        z-index: 1000;
+        border-top: 1px solid #eee;
+    }
+
+    .navbar.active { 
+        display: flex; 
+    }
+
+    .navbar a {
+        font-size: 14px;
+        margin: 0;
+        padding: 10px 15px;
+        width: 100%;
+        text-align: left;
+        box-sizing: border-box;
+        border-bottom: 1px solid #f0f0f0;
+    }
+
+    .navbar a:last-child {
+        border-bottom: none;
+    }
+
+    .navbar a:hover {
+        background-color: #f0f0f0;
+    }
 }

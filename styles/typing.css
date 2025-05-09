@@ -1,63 +1,68 @@
 .container {
     position: relative;
     width: 100%;
-    height: 75vh;
+    height: 75vh; /* vh is fine */
     color: black;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     background-color: transparent;
-    /*margin-left: 115px;*/
+    /*margin-left: 115px; /* Commented out, if used: 5.989583vw */
+    margin-bottom: 13vw;
 }
 
-.container h1{
-    font-size: 80px;
+.container h1 {
+    font-size: 4.166667vw; /* 80px */
     font-weight: 600;
 }
 
-
-.container h2{
-    padding-top: 75px;
+.container h2 {
+    padding-top: 3.90625vw; /* 75px */
 }
 
-.Button-Container{
+/* === BUTTON CONTAINER === */
+.Button-Container {
     display: flex;
     justify-content: center;
+    /* margin-bottom: 4vw; /* This was for spacing below button, handled by .container margin-bottom now */
 }
 
-.container button{
-    margin: 75px 0 0 0;
-    width: 400px;
-    height: 50px;
-    font-size: 23px;
+/* === GENERAL & SPECIFIC BUTTON STYLES === */
+
+/* This seems to be a general button style, might conflict with .moving-button */
+.container button { 
+    margin: 3.90625vw 0 0 0; /* 75px */
+    width: 20.833333vw; /* 400px */
+    height: 2.604167vw; /* 50px */
+    font-size: 1.197917vw; /* 23px */
     background-color: #f0af36d2;
 }
   
-  button{
+/* This is very general, ensure it's intended */
+button { 
     position: absolute;
     display: block;
-  } 
+} 
 
-/* CSS */
 .moving-button {
   position: absolute;
   appearance: none;
   background-color: #FFFFFF;
-  border-radius: 40em;
+  border-radius: 40em; /* em here will be relative to its own font-size, which is rem based */
   border-style: none;
-  box-shadow: rgb(211, 170, 116) 0 -12px 6px inset;
+  box-shadow: rgb(211, 170, 116) 0 -0.625vw 0.3125vw inset; /* -12px 6px -> -0.625vw 0.3125vw */
   box-sizing: border-box;
   color: #000000;
   cursor: pointer;
   display: inline-block;
   font-family: -apple-system,sans-serif;
-  font-size: 1.2rem;
+  font-size: 1.2rem; /* Will scale with root vw font-size */
   font-weight: 700;
-  letter-spacing: -.24px;
+  letter-spacing: -0.0125vw; /* -0.24px */
   margin: 0;
   outline: none;
-  padding: 1rem 1.3rem;
+  padding: 1rem 1.3rem; /* Will scale */
   quotes: auto;
   text-align: center;
   text-decoration: none;
@@ -65,11 +70,12 @@
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
+  z-index: 2001; /* Ensure clicks pass through */
 }
 
 .moving-button:hover {
   background-color: #f8e5bb;
-  box-shadow: white 0 -6px 8px inset;
+  box-shadow: white 0 -0.3125vw 0.416667vw inset; /* -6px 8px -> -0.3125vw 0.416667vw */
   transform: scale(1.125);
 }
 
@@ -77,45 +83,97 @@
   transform: scale(1.025);
 }
 
-@media (min-width: 768px) {
-  .moving-button {
-    font-size: 1.5rem;
-    padding: .75rem 2rem;
-  }
-}
-
+/* === PAINT EFFECT STYLES === */
 #paint-bg {
   position: fixed;
-  left: 0; top: 0;
+  left: 0; 
+  top: 0;
   width: 100vw;
   height: 100vh;
   z-index: 0;
   pointer-events: none;
   overflow: hidden;
 }
+
 #paint-bg .blob {
   position: absolute;
   border-radius: 50%;
   pointer-events: none;
   /*animation: fadeBlob 20s forwards;*/
-  filter: blur(4px);
-  box-shadow: 0 0 24px 8px var(--blob-color, #000);
+  filter: blur(0.208333vw); /* 4px */
+  box-shadow: 0 0 1.25vw 0.416667vw var(--blob-color, #000); /* 24px 8px */
 }
+
+.paint-drip {
+  position: absolute;
+  width: 0.208333vw; /* 4px */
+  height: 0; /* height is animated in JS */
+  border-radius: 0.104167vw; /* 2px */
+  opacity: 0.7;
+  z-index: 0;
+  pointer-events: none;
+  background: inherit;
+  transition: height 10s linear; 
+  filter: blur(0.208333vw); /* 4px */
+}
+
+/* === KEYFRAME ANIMATIONS === */
 @keyframes fadeBlob {
   0% { opacity: 1; }
   75% { opacity: 1; }
   100% { opacity: 0; }
 }
 
-.paint-drip {
-  position: absolute;
-  width: 4px;
-  height: 0;
-  border-radius: 2px;
-  opacity: 0.7;
-  z-index: 0;
-  pointer-events: none;
-  background: inherit;
-  transition: height 10s linear; /* Way slower */
-  filter: blur(4px);
+/* === RESPONSIVE STYLES === */
+
+/* Desktop-ish scaling for moving-button */
+@media (min-width: 40vw) { /* 768px at 1920px viewport width (768/19.2 = 40) */
+  .moving-button {
+    font-size: 1.5rem; /* Will scale with root vw font-size */
+    padding: .75rem 2rem; /* Will scale */
+  }
+}
+
+/* Mobile specific styles */
+@media (max-width: 768px) {
+    .container { /* This is the #home section container */
+        height: 55vh; /* Adjusted */
+        padding-top: 25rem; /* Increased padding for fixed header */
+        /* margin-bottom: 40px; /* Space AFTER the entire home/container section on mobile, if needed */
+    }
+
+    /* .Button-Container {
+        margin-bottom: 30px; /* Space below button container on mobile, if needed 
+    } */
+
+    .container h1 { /* Auto-type text parent */
+        font-size: 1.6rem; /* Approx 25-26px, adjusted */
+        text-align: center; /* This will center the .auto-type span's text if it wraps */
+        line-height: 1.4; 
+    }
+
+    .container h1 .auto-type {
+        white-space: normal; /* Explicitly allow wrapping for the span */
+    }
+
+    .container h2 { /* "Coding or some shit..." */
+        font-size: 1rem; /* Approx 16px, adjusted */
+        padding-top: 15px; /* Adjusted */
+        text-align: center;
+    }
+
+    /* Styles for .moving-button specifically within .container on mobile */
+    .container button.moving-button { 
+        margin: 25px 0 0 0; /* Adjusted */
+        width: 160px;  /* Adjusted */
+        height: 40px;  /* Adjusted */
+        font-size: 0.9rem; /* Adjusted */
+        /* padding: 10px 15px; /* This was on .moving-button directly, ensure consistency */
+    }
+
+    /* General .moving-button adjustments for mobile, if different from .container button.moving-button */
+    .moving-button { /* If this is meant to be a general override for all .moving-button on mobile */
+        font-size: 0.9rem; /* Approx 14-15px, adjusted */
+        padding: 10px 15px; /* Adjusted */
+    }
 }
