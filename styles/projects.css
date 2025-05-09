@@ -19,6 +19,7 @@
 .Project-container {
   padding-top: 10.9375vw; /* 210px */
   margin-top: -10.9375vw; /* -210px */
+  margin-bottom: 5em;
 }
 
 .Project {

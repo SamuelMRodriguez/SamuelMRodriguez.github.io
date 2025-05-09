@@ -378,7 +378,7 @@ main {
     padding-bottom: 0; 
     height: auto;  
     margin-bottom: 25px; 
-    margin-top: 40rem; /* This seems very large, check if intended */
+    margin-top: 30rem; /* This seems very large, check if intended */
   }
 
   .about-content .about-title-effect {

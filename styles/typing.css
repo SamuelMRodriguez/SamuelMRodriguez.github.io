@@ -138,8 +138,7 @@ button {
 @media (max-width: 768px) {
     .container { /* This is the #home section container */
         height: 55vh; /* Adjusted */
-        padding-top: 25rem; /* Increased padding for fixed header */
-        /* margin-bottom: 40px; /* Space AFTER the entire home/container section on mobile, if needed */
+        padding-top: 18rem; /* Increased padding for fixed header */
     }
 
     /* .Button-Container {
