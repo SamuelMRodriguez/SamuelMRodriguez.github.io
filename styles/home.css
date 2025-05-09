@@ -318,7 +318,7 @@ main {
     border-radius: 12px;
     font-size: 20px; 
     font-weight: bold; /* Combined font-weight */ 
-    padding: 23px 10px; /* Adjusted padding for desktop */
+    padding: 10px 8px; /* Adjusted padding for desktop */
     margin: 9px;
 
   }
